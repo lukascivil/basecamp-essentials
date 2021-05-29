@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 const removeReplyButtons = () => {
   $(".btn-reply, .btn-reply-all").detach();
 };

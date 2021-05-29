@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["https://3.basecamp.com/*"],
-      "js": ["3rd/jquery-3.6.0.min.js", "content.js"]
+      "js": ["content.bundle.js"]
     }
   ],
   "browser_action": {
@@ -14,7 +14,7 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["3rd/jquery-3.6.0.min.js", "background.js"],
+    "scripts": ["background.bundle.js"],
     "persistent": false
   },
   "permissions": ["activeTab", "storage", "https://ajax.googleapis.com/"]
