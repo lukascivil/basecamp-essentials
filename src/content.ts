@@ -1,19 +1,19 @@
 import $ from "jquery";
 
-const removeClearButtons = () => {
+const removeClearButtons = (): void => {
   $(".btn-clear").detach();
 };
-const removeReplyButtons = () => {
+const removeReplyButtons = (): void => {
   $(".btn-reply, .btn-reply-all").detach();
 };
 
-const renderClearButton = () => {
+const renderClearButton = (): void => {
   $(".chat__tools").append(
     `<button class="btn btn-outline-info btn-lg btn-clear" style="padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Clear</button>`
   );
 };
 
-const renderBoostAttributeLength = () => {
+const renderBoostAttributeLength = (): void => {
   $(".boost-form__label input").attr({
     maxlength: "160",
     style: "width: 100%;",
@@ -23,7 +23,7 @@ const renderBoostAttributeLength = () => {
   });
 };
 
-const renderReplyButtons = () => {
+const renderReplyButtons = (): void => {
   $("article")
     .not(".chat-line--me")
     .append(
@@ -43,19 +43,19 @@ const renderReplyButtons = () => {
     );
 };
 
-const removeEventHandlers = () => {
+const removeEventHandlers = (): void => {
   $(
     "article.chat--full-screen .btn-reply, article.chat--full-screen .btn-reply-all"
   ).off();
 };
 
-const createClearEventHandlers = () => {
+const createClearEventHandlers = (): void => {
   $("article.chat--full-screen").on("click", ".btn-clear", function (e) {
     $("trix-editor").text("");
   });
 };
 
-const createEventHandlers = () => {
+const createEventHandlers = (): void => {
   $("article.chat--full-screen").on("click", ".btn-reply-all", function (e) {
     const creatorName = $(e.currentTarget)
       .parent()
