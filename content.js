@@ -56,10 +56,14 @@ const createEventHandlers = () => {
   });
 
   $("article.chat--full-screen").on("click", ".btn-reply", function (e) {
+    const creatorName = $(e.currentTarget)
+      .parent()
+      .find(".chat-line__author")
+      .text();
     const article = $(e.currentTarget).closest("article")[0];
     const body = $(article).find(".chat-line__body").text();
 
-    const reply = `<blockquote>"${body}"<br><br> > </blockquote>`;
+    const reply = `<blockquote>${creatorName} <br> "${body}"<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
