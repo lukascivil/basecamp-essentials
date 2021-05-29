@@ -22,14 +22,7 @@ const renderReplyButtons = () => {
     );
 };
 
-$(document).ready(function () {
-  renderReplyButtons();
-
-  setInterval(() => {
-    removeReplyButtons();
-    renderReplyButtons();
-  }, 3000);
-
+const createEventHandlers = () => {
   $("article.chat--full-screen").on("click", ".btn-reply-all", function (e) {
     const creatorName = $(e.currentTarget)
       .parent()
@@ -66,4 +59,15 @@ $(document).ready(function () {
 
     $("trix-editor").html(reply);
   });
+};
+
+$(document).ready(function () {
+  renderReplyButtons();
+  createEventHandlers();
+
+  setInterval(() => {
+    removeReplyButtons();
+    renderReplyButtons();
+    createEventHandlers();
+  }, 3000);
 });
