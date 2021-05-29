@@ -1,5 +1,8 @@
 import $ from "jquery";
 
+const removeClearButtons = () => {
+  $(".btn-clear").detach();
+};
 const removeReplyButtons = () => {
   $(".btn-reply, .btn-reply-all").detach();
 };
@@ -89,14 +92,18 @@ $(document).ready(function () {
   renderReplyButtons();
   renderClearButton();
 
-  createEventHandlers();
   createClearEventHandlers();
+  createEventHandlers();
 
   setInterval(() => {
+    removeClearButtons();
     removeReplyButtons();
+
     renderReplyButtons();
+    renderClearButton();
 
     removeEventHandlers();
     createEventHandlers();
+    createClearEventHandlers();
   }, 3000);
 });
