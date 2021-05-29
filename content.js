@@ -22,6 +22,10 @@ const renderReplyButtons = () => {
     );
 };
 
+const removeEventHandlers = () => {
+  $("article.chat--full-screen").off();
+};
+
 const createEventHandlers = () => {
   $("article.chat--full-screen").on("click", ".btn-reply-all", function (e) {
     const creatorName = $(e.currentTarget)
@@ -68,6 +72,8 @@ $(document).ready(function () {
   setInterval(() => {
     removeReplyButtons();
     renderReplyButtons();
+
+    removeEventHandlers();
     createEventHandlers();
   }, 3000);
 });
