@@ -6,7 +6,7 @@ const renderReplyButtons = () => {
   $("article")
     .not(".chat-line--me")
     .append(
-      `<button class="btn btn-secondary btn-lg btn-reply" >Reply</button>`
+      `<button class="btn btn-outline-info btn-lg btn-reply" style="padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Reply</button>`
     );
 
   $("article")
@@ -18,7 +18,7 @@ const renderReplyButtons = () => {
       return hasNextPost;
     })
     .append(
-      `<button class="btn btn-secondary btn-lg btn-reply-all" >Reply All</button>`
+      `<button class="btn btn-outline-info btn-lg btn-reply-all" style="margin-left: 1px; padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Reply All</button>`
     );
 };
 
