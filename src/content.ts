@@ -13,6 +13,16 @@ const renderClearButton = () => {
   );
 };
 
+const renderBoostAttributeLength = () => {
+  $(".boost-form__label input").attr({
+    maxlength: "160",
+    style: "width: 100%;",
+  });
+  $(".boost-form__label").attr({
+    style: "width: 200px;",
+  });
+};
+
 const renderReplyButtons = () => {
   $("article")
     .not(".chat-line--me")
@@ -89,18 +99,32 @@ const createEventHandlers = () => {
 };
 
 $(document).ready(function () {
-  renderReplyButtons();
-  renderClearButton();
+  let pageHasChatContent: boolean =
+    window.location.pathname.includes("circles") ||
+    window.location.pathname.includes("chats");
+
+  if (pageHasChatContent) {
+    renderReplyButtons();
+    renderClearButton();
+  }
+  renderBoostAttributeLength();
 
   createClearEventHandlers();
   createEventHandlers();
 
   setInterval(() => {
+    pageHasChatContent =
+      window.location.pathname.includes("circles") ||
+      window.location.pathname.includes("chats");
+
     removeClearButtons();
     removeReplyButtons();
 
-    renderReplyButtons();
-    renderClearButton();
+    if (pageHasChatContent) {
+      renderReplyButtons();
+      renderClearButton();
+    }
+    renderBoostAttributeLength();
 
     removeEventHandlers();
     createEventHandlers();
