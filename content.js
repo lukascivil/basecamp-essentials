@@ -1,4 +1,8 @@
-$(document).ready(function () {
+const removeReplyButtons = () => {
+  $(".btn-reply, .btn-reply-all").detach();
+};
+
+const renderReplyButtons = () => {
   $("article")
     .not(".chat-line--me")
     .append(
@@ -16,8 +20,17 @@ $(document).ready(function () {
     .append(
       `<button class="btn btn-secondary btn-lg btn-reply-all" >Reply All</button>`
     );
+};
 
-  $(".btn-reply-all").on("click", function (e) {
+$(document).ready(function () {
+  renderReplyButtons();
+
+  setInterval(() => {
+    removeReplyButtons();
+    renderReplyButtons();
+  }, 3000);
+
+  $("article.chat--full-screen").on("click", ".btn-reply-all", function (e) {
     const creatorName = $(e.currentTarget)
       .parent()
       .find(".chat-line__author")
@@ -40,16 +53,16 @@ $(document).ready(function () {
 
     const body = `${firstMessage} <br> ${nextMessages}`;
 
-    const reply = `<blockquote>${creatorName} <br> "${body}"<br><br> =></blockquote>`;
+    const reply = `<blockquote>${creatorName} <br> "${body}"<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
 
-  $(".btn-reply").on("click", function (e) {
+  $("article.chat--full-screen").on("click", ".btn-reply", function (e) {
     const article = $(e.currentTarget).closest("article")[0];
     const body = $(article).find(".chat-line__body").text();
 
-    const reply = `<blockquote>"${body}"<br><br> =></blockquote>`;
+    const reply = `<blockquote>"${body}"<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
