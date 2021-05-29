@@ -4,6 +4,12 @@ const removeReplyButtons = () => {
   $(".btn-reply, .btn-reply-all").detach();
 };
 
+const renderClearButton = () => {
+  $(".chat__tools").append(
+    `<button class="btn btn-outline-info btn-lg btn-clear" style="padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Clear</button>`
+  );
+};
+
 const renderReplyButtons = () => {
   $("article")
     .not(".chat-line--me")
@@ -25,7 +31,15 @@ const renderReplyButtons = () => {
 };
 
 const removeEventHandlers = () => {
-  $("article.chat--full-screen").off();
+  $(
+    "article.chat--full-screen .btn-reply, article.chat--full-screen .btn-reply-all"
+  ).off();
+};
+
+const createClearEventHandlers = () => {
+  $("article.chat--full-screen").on("click", ".btn-clear", function (e) {
+    $("trix-editor").text("");
+  });
 };
 
 const createEventHandlers = () => {
@@ -73,7 +87,10 @@ const createEventHandlers = () => {
 
 $(document).ready(function () {
   renderReplyButtons();
+  renderClearButton();
+
   createEventHandlers();
+  createClearEventHandlers();
 
   setInterval(() => {
     removeReplyButtons();
