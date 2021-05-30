@@ -10,7 +10,6 @@ import {
   removeReplyButtons,
   removeClearButtons,
   createReplyEventHandlers,
-  removeReplyEventHandlers,
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
   removeIgnoreHey,
@@ -48,7 +47,6 @@ $(function () {
     renderBoostAttributeLength();
     renderIgnoreHey();
 
-    removeReplyEventHandlers();
     removeIgnoreHeyEventHandlers();
     createReplyEventHandlers();
     createClearEventHandlers();
