@@ -47,7 +47,6 @@ export const createEventHandlers = (): void => {
     const allContent = $(e.currentTarget)
       .parent()
       .nextUntil($(`[data-creator-id!="` + creatorId + `"]`), "article");
-
     const firstMessage = $(e.currentTarget)
       .parent()
       .find(".chat-line__body")
@@ -57,11 +56,10 @@ export const createEventHandlers = (): void => {
         return $(element).find(".chat-line__body").text();
       })
       .toArray()
+      .map((message) => `•${message}`)
       .join("<br>");
-
-    const body = `${firstMessage} <br> ${nextMessages}`;
-
-    const reply = `<blockquote>${creatorName} <br> "${body}"<br><br> > </blockquote>`;
+    const body = `•${firstMessage} <br> ${nextMessages}`;
+    const reply = `<blockquote>${creatorName} <br> ${body}<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
@@ -73,8 +71,7 @@ export const createEventHandlers = (): void => {
       .text();
     const article = $(e.currentTarget).closest("article")[0];
     const body = $(article).find(".chat-line__body").text();
-
-    const reply = `<blockquote>${creatorName} <br> "${body}"<br><br> > </blockquote>`;
+    const reply = `<blockquote>${creatorName} <br> •${body}<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
