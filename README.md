@@ -22,3 +22,10 @@ Opinionated features to increase your productivity with basecamp
 - Webpack
 - ESLint
 - Prettier
+
+### What problems can you help
+1. [refactor] Remove SetInterval and use recursive function
+2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
+3. [refactor] Remove unused script from package.json
+4. [test] Implement tests
+5. [feat] Hide items from the "heys" list that do not make direct reference
