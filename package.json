@@ -11,7 +11,7 @@
     "build": "webpack && ts-node release.ts",
     "tsc": "tsc",
     "bundle": "webpack --watch --progress",
-    "lint": "eslint --ext .js,.ts,.tsx .",
+    "lint": "eslint --ext .js,.ts,.tsx . --ignore-path .eslintignore",
     "check-types": "tsc --no-emit"
   },
   "dependencies": {
