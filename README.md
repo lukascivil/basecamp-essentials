@@ -39,3 +39,5 @@ sleep(3000)
 4. [test] Implement tests
 5. [feat] Hide items from the "heys" list that do not make direct reference
 6. [refactor] Improve the performance by reusing known nodes
+7. [fix] Reply is displayed on some basecamp pages that have no relation to the "chat" feature
+8. [fix] Boost size does not work sometimes
