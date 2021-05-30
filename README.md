@@ -36,6 +36,15 @@ sleep(2000)
 
 Ps:. (Basecamp Essentials) features will always work regardless of whether the page has been loaded or not. The architecture tries to keep its operation always updated so that the user does not have to update the page every time. The project was designed in this way to maintain a good user experience.
 
+Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic things works. But, be careful not to forget to unsubscribe before registering a new handler.
+
+(Without unregister)
+![image](https://user-images.githubusercontent.com/7409802/120116723-df756a00-c15f-11eb-8651-8a09db84ecb9.png)
+
+(Unregistering)
+
+
+
 ### What problems can you help
 
 1. [refactor] Remove SetInterval and use recursive function to prevent memoryleak
@@ -63,3 +72,5 @@ Ps:. (Basecamp Essentials) features will always work regardless of whether the p
 2. Click on "load without compression"
 3. Select dist folder from project
 4. Open Basecamp and see how it works
+
+
