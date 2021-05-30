@@ -36,7 +36,7 @@ Ps:. (Basecamp Essentials) features will always work regardless of whether the p
 
 
 ### What problems can you help
-1. [refactor] Remove SetInterval and use recursive function
+1. [refactor] Remove SetInterval and use recursive function to prevent memoryleak
 2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
 3. [refactor] Remove unused script from package.json
 4. [test] Implement tests
