@@ -23,6 +23,15 @@ Opinionated features to increase your productivity with basecamp
 - ESLint
 - Prettier
 
+### Architecture
+
+```
+while(true)
+renders        ----> Dom
+Event Handlers <---- Dom
+sleep(3000)
+```
+
 ### What problems can you help
 1. [refactor] Remove SetInterval and use recursive function
 2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
