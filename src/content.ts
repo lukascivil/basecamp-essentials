@@ -1,4 +1,7 @@
+// Packages
 import $ from "jquery";
+
+// Features
 import {
   renderClearButton,
   renderReplyButtons,

@@ -1,4 +1,8 @@
+// Packages
 import $ from "jquery";
+
+// Utils
+import { computeFriendlyDifferenceFromNow } from "../utils/time";
 
 /**
  * Renders
@@ -43,6 +47,13 @@ export const createReplyEventHandlers = (): void => {
       .parent()
       .find(".chat-line__author")
       .text();
+    const articleCreatedAt = $(e.currentTarget)
+      .parent()
+      .find("time")
+      .attr("datetime");
+    const friendlyTimeMessage = `há ${computeFriendlyDifferenceFromNow(
+      articleCreatedAt
+    )} atrás`;
     const creatorId = $(e.currentTarget).parent().attr("data-creator-id");
     const allContent = $(e.currentTarget)
       .parent()
@@ -59,7 +70,7 @@ export const createReplyEventHandlers = (): void => {
       .map((message) => `•${message}`)
       .join("<br>");
     const body = `•${firstMessage} <br> ${nextMessages}`;
-    const reply = `<blockquote>${creatorName} <br> ${body}<br><br> > </blockquote>`;
+    const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> ${body}<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
@@ -69,9 +80,16 @@ export const createReplyEventHandlers = (): void => {
       .parent()
       .find(".chat-line__author")
       .text();
+    const articleCreatedAt = $(e.currentTarget)
+      .parent()
+      .find("time")
+      .attr("datetime");
+    const friendlyTimeMessage = `há ${computeFriendlyDifferenceFromNow(
+      articleCreatedAt
+    )} atrás`;
     const article = $(e.currentTarget).closest("article")[0];
     const body = $(article).find(".chat-line__body").text();
-    const reply = `<blockquote>${creatorName} <br> •${body}<br><br> > </blockquote>`;
+    const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> •${body}<br><br> > </blockquote>`;
 
     $("trix-editor").html(reply);
   });
