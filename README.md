@@ -57,6 +57,8 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 7. [fix] Reply is displayed on some basecamp pages that have no relation to the "chat" feature
 8. [fix] Boost size does not work sometimes
 9. [fix] (Solved) "Reply all" is very very slow after some time
+10. [feat] Add more or all available emojis
+11. [feat] Improve Chrome Extension configuration and presentation, Bootstrap nav is breaking
 
 ### How to contribute
 
