@@ -54,9 +54,12 @@ Ps:. (Basecamp Essentials) features will always work regardless of whether the p
 
 ### Running the project
 
-1. yarn
-2. yarn bundle
-3. Open on Chrome [Extensions](chrome://extensions/)
-4. Click on "load without compression"
-5. Select dist folder from project
-6. Open Basecamp and see how it works
+```sh
+  yarn
+  yarn bundle
+```
+
+1. Open on Chrome [Extensions](chrome://extensions/)
+2. Click on "load without compression"
+3. Select dist folder from project
+4. Open Basecamp and see how it works
