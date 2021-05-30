@@ -56,7 +56,7 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 6. [refactor] Improve the performance by reusing known nodes
 7. [fix] Reply is displayed on some basecamp pages that have no relation to the "chat" feature
 8. [fix] Boost size does not work sometimes
-9. [fix] "Reply all" is very very slow after some time
+9. [fix] (Solved) "Reply all" is very very slow after some time
 
 ### How to contribute
 
