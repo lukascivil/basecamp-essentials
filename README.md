@@ -3,20 +3,22 @@
 </p>
 
 # basecamp-essentials
+
 Opinionated features to increase your productivity with basecamp
 
 <p align="center">
   <img width="1000" src="https://user-images.githubusercontent.com/7409802/120087649-18f69880-c0c0-11eb-9016-a8a058aed030.png">
 </p>
 
-
 ### Features
+
 - Reply
 - Reply all
 - Clear my temporary comment
 - Greater Boost
 
 ### Tools
+
 - Typescript
 - Jquery
 - Webpack
@@ -34,8 +36,8 @@ sleep(2000)
 
 Ps:. (Basecamp Essentials) features will always work regardless of whether the page has been loaded or not. The architecture tries to keep its operation always updated so that the user does not have to update the page every time. The project was designed in this way to maintain a good user experience.
 
-
 ### What problems can you help
+
 1. [refactor] Remove SetInterval and use recursive function to prevent memoryleak
 2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
 3. [refactor] Remove unused script from package.json
@@ -44,3 +46,17 @@ Ps:. (Basecamp Essentials) features will always work regardless of whether the p
 6. [refactor] Improve the performance by reusing known nodes
 7. [fix] Reply is displayed on some basecamp pages that have no relation to the "chat" feature
 8. [fix] Boost size does not work sometimes
+9. [fix] "Reply all" is very very slow after some time
+
+### How to contribute
+
+- Open an "issue" requesting a feature or reporting a problem
+
+### Running the project
+
+1. yarn
+2. yarn bundle
+3. Open on Chrome [Extensions](chrome://extensions/)
+4. Click on "load without compression"
+5. Select dist folder from project
+6. Open Basecamp and see how it works
