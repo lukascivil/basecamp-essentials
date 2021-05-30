@@ -42,6 +42,7 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 ![image](https://user-images.githubusercontent.com/7409802/120116723-df756a00-c15f-11eb-8651-8a09db84ecb9.png)
 
 (Unregistering)
+![image](https://user-images.githubusercontent.com/7409802/120118407-c6bd8200-c168-11eb-9a1e-57dd032574a1.png)
 
 
 
