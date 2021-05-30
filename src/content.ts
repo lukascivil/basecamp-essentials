@@ -8,6 +8,9 @@ import {
   removeClearButtons,
   createEventHandlers,
   removeEventHandlers,
+  renderIgnoreHey,
+  createIgnoreHeyEventHandlers,
+  removeIgnoreHey,
 } from "./features";
 
 $(function () {
@@ -21,15 +24,17 @@ $(function () {
   }
   renderBoostAttributeLength();
 
+  createIgnoreHeyEventHandlers();
   createClearEventHandlers();
   createEventHandlers();
 
-  setInterval(() => {
+  const bootstrap = (): void => {
     pageHasChatContent =
       window.location.pathname.includes("circles") ||
       window.location.pathname.includes("chats");
 
     removeClearButtons();
+    removeIgnoreHey();
     removeReplyButtons();
 
     if (pageHasChatContent) {
@@ -37,9 +42,17 @@ $(function () {
       renderClearButton();
     }
     renderBoostAttributeLength();
+    renderIgnoreHey();
 
     removeEventHandlers();
     createEventHandlers();
     createClearEventHandlers();
-  }, 3000);
+    createIgnoreHeyEventHandlers();
+
+    setTimeout(() => {
+      bootstrap();
+    }, 2000);
+  };
+
+  bootstrap();
 });
