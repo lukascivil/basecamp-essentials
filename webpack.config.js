@@ -1,9 +1,10 @@
 var path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 var config = {
-  // TODO: Add common Configuration
   module: {},
+  plugins: [new CleanWebpackPlugin()],
 };
 
 const contentConfig = Object.assign({}, config, {
@@ -19,7 +20,6 @@ const contentConfig = Object.assign({}, config, {
   module: {
     rules: [
       {
-        // Include ts, tsx, js, and jsx files.
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
@@ -48,7 +48,6 @@ const backgroundConfig = Object.assign({}, config, {
   module: {
     rules: [
       {
-        // Include ts, tsx, js, and jsx files.
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
