@@ -38,3 +38,4 @@ sleep(3000)
 3. [refactor] Remove unused script from package.json
 4. [test] Implement tests
 5. [feat] Hide items from the "heys" list that do not make direct reference
+6. [refactor] Improve the performance by reusing known nodes
