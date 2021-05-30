@@ -32,6 +32,9 @@ Event Handlers <---- Dom
 sleep(3000)
 ```
 
+Ps:. (Basecamp Essentials) features will always work regardless of whether the page has been loaded or not. The architecture tries to keep its operation always updated so that the user does not have to update the page every time. The project was designed in this way to maintain a good user experience.
+
+
 ### What problems can you help
 1. [refactor] Remove SetInterval and use recursive function
 2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
