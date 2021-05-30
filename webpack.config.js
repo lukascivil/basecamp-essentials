@@ -8,7 +8,6 @@ var config = {
 };
 
 const contentConfig = Object.assign({}, config, {
-  // Change to your "entry-point".
   entry: "./src/content",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -31,6 +30,11 @@ const contentConfig = Object.assign({}, config, {
       patterns: [
         { context: "src/", from: "*.json" },
         { context: "src/", from: "*.png" },
+        { context: "src/", from: "*.html" },
+        {
+          from: "src/third-party/**/*",
+          to: "third-party/[name][ext]",
+        },
       ],
     }),
   ],
