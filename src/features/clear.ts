@@ -19,7 +19,7 @@ export const renderClearButton = (): void => {
  */
 
 export const createClearEventHandlers = (): void => {
-  $("article.chat--full-screen").on("click", ".btn-clear", function (e) {
+  $("article.chat--full-screen").on("click", ".btn-clear", function () {
     $("trix-editor").text("");
   });
 };
