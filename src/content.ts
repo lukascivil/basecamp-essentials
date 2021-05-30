@@ -13,7 +13,6 @@ import {
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
   removeIgnoreHey,
-  removeIgnoreHeyEventHandlers,
 } from "./features";
 
 $(function () {
@@ -47,7 +46,6 @@ $(function () {
     renderBoostAttributeLength();
     renderIgnoreHey();
 
-    removeIgnoreHeyEventHandlers();
     createReplyEventHandlers();
     createClearEventHandlers();
     createIgnoreHeyEventHandlers();
