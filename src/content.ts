@@ -6,11 +6,12 @@ import {
   createClearEventHandlers,
   removeReplyButtons,
   removeClearButtons,
-  createEventHandlers,
-  removeEventHandlers,
+  createReplyEventHandlers,
+  removeReplyEventHandlers,
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
   removeIgnoreHey,
+  removeIgnoreHeyEventHandlers,
 } from "./features";
 
 $(function () {
@@ -26,7 +27,7 @@ $(function () {
 
   createIgnoreHeyEventHandlers();
   createClearEventHandlers();
-  createEventHandlers();
+  createReplyEventHandlers();
 
   const bootstrap = (): void => {
     pageHasChatContent =
@@ -44,8 +45,9 @@ $(function () {
     renderBoostAttributeLength();
     renderIgnoreHey();
 
-    removeEventHandlers();
-    createEventHandlers();
+    removeReplyEventHandlers();
+    removeIgnoreHeyEventHandlers();
+    createReplyEventHandlers();
     createClearEventHandlers();
     createIgnoreHeyEventHandlers();
 

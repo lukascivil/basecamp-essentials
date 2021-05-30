@@ -20,6 +20,10 @@ export const renderIgnoreHey = (): void => {
  * Event Handlers
  */
 
+export const removeIgnoreHeyEventHandlers = (): void => {
+  $("section.readings--unreads .btn-hideUnmarked").off();
+};
+
 export const createIgnoreHeyEventHandlers = (): void => {
   $("section.readings--unreads").on("click", ".btn-hideUnmarked", function () {
     $(".content-type-icon--mention").closest("article").addClass("has-mention");

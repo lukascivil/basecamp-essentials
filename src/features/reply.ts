@@ -31,13 +31,13 @@ export const renderReplyButtons = (): void => {
  * Event Handlers
  */
 
-export const removeEventHandlers = (): void => {
+export const removeReplyEventHandlers = (): void => {
   $(
     "article.chat--full-screen .btn-reply, article.chat--full-screen .btn-reply-all"
   ).off();
 };
 
-export const createEventHandlers = (): void => {
+export const createReplyEventHandlers = (): void => {
   $("article.chat--full-screen").on("click", ".btn-reply-all", function (e) {
     const creatorName = $(e.currentTarget)
       .parent()
