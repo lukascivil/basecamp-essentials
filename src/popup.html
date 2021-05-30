@@ -5,20 +5,37 @@
   </head>
   <body style="width: 400px">
     <ul class="nav nav-tabs">
+      <li class="nav-item active" >
+        <a class="nav-link active" data-toggle="tab" href="#summary">Summary</a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">Summary</a>
+        <a class="nav-link" data-toggle="tab" href="#link">Link</a>
       </li>
     </ul>
-    <div class="container" style="margin-top: 18px; margin-bottom: 18px">
-      <div class="jumbotron">
-        <h4 class="display-5">Basecamp Essentials</h4>
-        <p class="lead">
-          Essentials was built with the idea of increasing your
-          productivity when using the basecamp.
-        </p>
+
+    <div class="tab-content">
+      <div id="summary" class="tab-pane fade in active">
+        <div class="container" style="margin-top: 18px; margin-bottom: 18px">
+          <div class="jumbotron">
+            <h4 class="display-5">Basecamp Essentials</h4>
+            <p class="lead">
+              Essentials was built with the idea of increasing your
+              productivity when using the basecamp.
+            </p>
+          </div>
+          <p class="font-weight-normal">https://github.com/lukascivil/basecamp-essentials</p>
+        </div>
       </div>
-      <p class="font-weight-normal">https://github.com/lukascivil/basecamp-essentials</p>
+      <div id="link" class="tab-pane fade">
+        <div class="container" style="margin-top: 18px; margin-bottom: 18px">
+          <h3>Menu 1</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script src="third-party/jquery-3.2.1.slim.min.js"></script>
+  <script src="third-party/bootstrap.min.js"></script>
   </body>
 </html>
