@@ -29,7 +29,7 @@ Opinionated features to increase your productivity with basecamp
 while(true)
 renders        ----> Dom
 Event Handlers <---- Dom
-sleep(3000)
+sleep(2000)
 ```
 
 Ps:. (Basecamp Essentials) features will always work regardless of whether the page has been loaded or not. The architecture tries to keep its operation always updated so that the user does not have to update the page every time. The project was designed in this way to maintain a good user experience.
