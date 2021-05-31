@@ -24,7 +24,7 @@ const buildLineBodyRecursiveMessageFromNode = (
   return message;
 };
 
-export const tryBuildReplyBodyMessageFromNodes = (
+export const tryBuildReplyBodyMessageFromLineBodyNodes = (
   // eslint-disable-next-line no-undef
   lineBodyNodes: Array<JQuery.Node>
 ): string => {

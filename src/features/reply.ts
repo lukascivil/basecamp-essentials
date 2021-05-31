@@ -2,7 +2,7 @@
 import $ from "jquery";
 
 // Helpers
-import { tryBuildReplyBodyMessageFromNodes } from "../helpers/messages";
+import { tryBuildReplyBodyMessageFromLineBodyNodes } from "../helpers/reply-messages";
 
 // Utils
 import { computeFriendlyDifferenceFromNow } from "../utils/time";
@@ -53,14 +53,15 @@ const renderReplyAllTrixMessage = (event: any): void => {
   const firstLineBodyNodes = $.parseHTML(
     $(event.currentTarget).parent().find(".chat-line__body").html()
   );
-  const firstMessage = tryBuildReplyBodyMessageFromNodes(firstLineBodyNodes);
+  const firstMessage =
+    tryBuildReplyBodyMessageFromLineBodyNodes(firstLineBodyNodes);
   const nextMessages = articles
     .map((_, article) => {
       const lineBodyNode = $.parseHTML(
         $(article).find(".chat-line__body").html()
       );
 
-      return tryBuildReplyBodyMessageFromNodes(lineBodyNode);
+      return tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNode);
     })
     .toArray()
     .map((message) => `• ${message}`)
@@ -86,7 +87,7 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
   )} atrás`;
   const article = $(event.currentTarget).closest("article")[0];
   const lineBodyNodes = $.parseHTML($(article).find(".chat-line__body").html());
-  const bodyMessage = tryBuildReplyBodyMessageFromNodes(lineBodyNodes);
+  const bodyMessage = tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNodes);
   const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> > </blockquote>`;
   console.log({ lineBodyNodes, bodyMessage });
 
