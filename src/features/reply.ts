@@ -89,7 +89,6 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
   const lineBodyNodes = $.parseHTML($(article).find(".chat-line__body").html());
   const bodyMessage = tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNodes);
   const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> > </blockquote>`;
-  console.log({ lineBodyNodes, bodyMessage });
 
   $("trix-editor").html(reply);
 };
