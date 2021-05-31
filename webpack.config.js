@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 var config = {
   module: {},
   plugins: [new CleanWebpackPlugin()],
+  devtool: "source-map",
 };
 
 const contentConfig = Object.assign({}, config, {
