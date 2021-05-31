@@ -1,6 +1,9 @@
 // Packages
 import $ from "jquery";
 
+// Helpers
+import { tryBuildReplyBodyMessageFromNodes } from "../helpers/messages";
+
 // Utils
 import { computeFriendlyDifferenceFromNow } from "../utils/time";
 
@@ -44,21 +47,26 @@ const renderReplyAllTrixMessage = (event: any): void => {
     articleCreatedAt
   )} atrás`;
   const creatorId = $(event.currentTarget).parent().attr("data-creator-id");
-  const allContent = $(event.currentTarget)
+  const articles = $(event.currentTarget)
     .parent()
     .nextUntil($(`[data-creator-id!="` + creatorId + `"]`), "article");
-  const firstMessage = $(event.currentTarget)
-    .parent()
-    .find(".chat-line__body")
-    .text();
-  const nextMessages = allContent
-    .map((_, element) => {
-      return $(element).find(".chat-line__body").text();
+  const firstLineBodyNodes = $.parseHTML(
+    $(event.currentTarget).parent().find(".chat-line__body").html()
+  );
+  const firstMessage = tryBuildReplyBodyMessageFromNodes(firstLineBodyNodes);
+  const nextMessages = articles
+    .map((_, article) => {
+      const lineBodyNode = $.parseHTML(
+        $(article).find(".chat-line__body").html()
+      );
+
+      return tryBuildReplyBodyMessageFromNodes(lineBodyNode);
     })
     .toArray()
-    .map((message) => `•${message}`)
+    .map((message) => `• ${message}`)
     .join("<br>");
-  const body = `•${firstMessage} <br> ${nextMessages}`;
+
+  const body = `• ${firstMessage} <br> ${nextMessages}`;
   const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> ${body}<br><br> > </blockquote>`;
 
   $("trix-editor").html(reply);
@@ -77,8 +85,10 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
     articleCreatedAt
   )} atrás`;
   const article = $(event.currentTarget).closest("article")[0];
-  const body = $(article).find(".chat-line__body").text();
-  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> •${body}<br><br> > </blockquote>`;
+  const lineBodyNodes = $.parseHTML($(article).find(".chat-line__body").html());
+  const bodyMessage = tryBuildReplyBodyMessageFromNodes(lineBodyNodes);
+  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> > </blockquote>`;
+  console.log({ lineBodyNodes, bodyMessage });
 
   $("trix-editor").html(reply);
 };
