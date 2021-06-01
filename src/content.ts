@@ -14,6 +14,8 @@ import {
   createIgnoreHeyEventHandlers,
   removeIgnoreHey,
   renderArticleAsAlert,
+  renderPingSearch,
+  createPingSearchEventHandlers,
 } from "./features";
 
 $(function () {
@@ -26,7 +28,9 @@ $(function () {
     renderArticleAsAlert();
     renderClearButton();
   }
+
   renderBoostAttributeLength();
+  renderPingSearch();
 
   createIgnoreHeyEventHandlers();
   createClearEventHandlers();
@@ -47,12 +51,14 @@ $(function () {
       renderArticleAsAlert();
     }
 
+    renderPingSearch();
     renderBoostAttributeLength();
     renderIgnoreHey();
 
     createReplyEventHandlers();
     createClearEventHandlers();
     createIgnoreHeyEventHandlers();
+    createPingSearchEventHandlers();
 
     setTimeout(() => {
       bootstrap();

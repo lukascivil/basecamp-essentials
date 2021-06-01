@@ -4,3 +4,4 @@ export * from "./clear";
 export * from "./reply";
 export * from "./hey";
 export * from "./article-as-alert";
+export * from "./ping-search";
