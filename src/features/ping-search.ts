@@ -32,6 +32,10 @@ export const createPingSearchEventHandlers = (): void => {
       $("a.circle-avatars").removeClass("ping-search-found");
       $("a.circle-avatars").show();
 
+      if (value === "") {
+        return;
+      }
+
       $("article")
         .find(`a[aria-label*='${value}']`)
         .addClass("ping-search-found");
