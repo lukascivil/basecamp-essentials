@@ -18,7 +18,36 @@ import {
   createPingSearchEventHandlers,
 } from "./features";
 
-$(function () {
+const loop = (): void => {
+  const pageHasChatContent =
+    window.location.pathname.includes("circles") ||
+    window.location.pathname.includes("chats");
+
+  removeClearButtons();
+  removeIgnoreHey();
+  removeReplyButtons();
+
+  if (pageHasChatContent) {
+    renderReplyButtons();
+    renderClearButton();
+    renderArticleAsAlert();
+  }
+
+  renderPingSearch();
+  renderBoostAttributeLength();
+  renderIgnoreHey();
+
+  createReplyEventHandlers();
+  createClearEventHandlers();
+  createIgnoreHeyEventHandlers();
+  createPingSearchEventHandlers();
+
+  setTimeout(() => {
+    loop();
+  }, 2000);
+};
+
+const bootstrap = (): void => {
   let pageHasChatContent: boolean =
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
@@ -36,34 +65,12 @@ $(function () {
   createClearEventHandlers();
   createReplyEventHandlers();
 
-  const bootstrap = (): void => {
-    pageHasChatContent =
-      window.location.pathname.includes("circles") ||
-      window.location.pathname.includes("chats");
+  loop();
+};
 
-    removeClearButtons();
-    removeIgnoreHey();
-    removeReplyButtons();
-
-    if (pageHasChatContent) {
-      renderReplyButtons();
-      renderClearButton();
-      renderArticleAsAlert();
-    }
-
-    renderPingSearch();
-    renderBoostAttributeLength();
-    renderIgnoreHey();
-
-    createReplyEventHandlers();
-    createClearEventHandlers();
-    createIgnoreHeyEventHandlers();
-    createPingSearchEventHandlers();
-
-    setTimeout(() => {
-      bootstrap();
-    }, 2000);
-  };
-
+/**
+ * Init Extension
+ */
+$(function () {
   bootstrap();
 });
