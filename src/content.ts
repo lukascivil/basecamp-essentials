@@ -13,6 +13,7 @@ import {
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
   removeIgnoreHey,
+  renderArticleAsAlert,
 } from "./features";
 
 $(function () {
@@ -22,6 +23,7 @@ $(function () {
 
   if (pageHasChatContent) {
     renderReplyButtons();
+    renderArticleAsAlert();
     renderClearButton();
   }
   renderBoostAttributeLength();
@@ -42,7 +44,9 @@ $(function () {
     if (pageHasChatContent) {
       renderReplyButtons();
       renderClearButton();
+      renderArticleAsAlert();
     }
+
     renderBoostAttributeLength();
     renderIgnoreHey();
 
