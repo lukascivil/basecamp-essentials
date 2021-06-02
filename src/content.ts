@@ -16,6 +16,7 @@ import {
   renderArticleAsAlert,
   renderPingSearch,
   createPingSearchEventHandlers,
+  renderChatSummary,
 } from "./features";
 
 const loop = (): void => {
@@ -36,6 +37,7 @@ const loop = (): void => {
   renderPingSearch();
   renderBoostAttributeLength();
   renderIgnoreHey();
+  renderChatSummary();
 
   createReplyEventHandlers();
   createClearEventHandlers();
