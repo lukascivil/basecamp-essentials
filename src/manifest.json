@@ -3,6 +3,9 @@
   "name": "Basecamp Essentials",
   "description": "Opinionated features to increase your productivity with basecamp",
   "version": "1.0",
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
   "content_scripts": [
     {
       "matches": ["https://3.basecamp.com/*"],
@@ -14,5 +17,5 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  "permissions": []
+  "permissions": ["storage"]
 }
