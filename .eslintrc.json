@@ -13,7 +13,20 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-unused-vars": ["warn"],
-    "@typescript-eslint/explicit-function-return-type": ["error"],
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "parser": "@typescript-eslint/parser",
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            {
+              "allowExpressions": true
+            }
+          ]
+        }
+      }
+    ],
     "@typescript-eslint/no-inferrable-types": [
       "error",
       {
