@@ -44,14 +44,12 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 (Unregistering)
 ![image](https://user-images.githubusercontent.com/7409802/120118407-c6bd8200-c168-11eb-9a1e-57dd032574a1.png)
 
-
-
 ### What problems can you help
 
 1. [refactor] Remove SetInterval and use recursive function to prevent memoryleak
 2. [refactor] Organize content.ts Separate renders from eventHanlders at the same file, or create a filer per strategy and content.js will be our bootstrap
 3. [refactor] Remove unused script from package.json
-4. [test] Implement tests
+4. [test] Implement tests. PLease read [this](https://jestjs.io/pt-BR/docs/tutorial-jquery) before
 5. [feat] Hide items from the "heys" list that do not make direct reference
 6. [refactor] Improve the performance by reusing known nodes
 7. [fix] Reply is displayed on some basecamp pages that have no relation to the "chat" feature
@@ -75,5 +73,3 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 2. Click on "load without compression"
 3. Select dist folder from project
 4. Open Basecamp and see how it works
-
-
