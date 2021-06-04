@@ -66,7 +66,7 @@ Event Handlers on loops can cause MemoryLeak, but its nmecessary to make dynamic
 
 ```sh
   yarn
-  yarn bundle
+  yarn start
 ```
 
 1. Open on Chrome [Extensions](chrome://extensions/)
