@@ -1,14 +1,22 @@
 // Packages
 import $ from "jquery";
 
+// Models
+import { BasecampEssentialsConfigParsed } from "../models/basecamp-essentials-config";
+
 /**
  * Renders
  */
 
-export const renderChatSummary = (): void => {
+export const renderChatSummary = (
+  basecampEssentialsConfigParsed: BasecampEssentialsConfigParsed
+): void => {
   const domHasChatSummary = $(".chat-summary-exist").length;
 
-  if (domHasChatSummary) {
+  if (
+    domHasChatSummary ||
+    basecampEssentialsConfigParsed?.chatSummary === "false"
+  ) {
     return;
   }
 
