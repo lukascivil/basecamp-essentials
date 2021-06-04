@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   workflow_dispatch:
 
@@ -21,3 +21,5 @@ jobs:
         run: yarn lint
       - name: Run check-types
         run: yarn check-types
+      - name: Run Build
+        run: yarn build

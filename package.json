@@ -7,10 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "babel --watch src --out-dir build --extensions .ts,.tsx --copy-files",
-    "build": "webpack && ts-node release.ts",
-    "tsc": "tsc",
-    "bundle": "webpack --watch --progress",
+    "start": "webpack --watch --progress",
+    "build": "webpack --progress",
     "lint": "eslint --ext .js,.ts,.tsx . --ignore-path .eslintignore",
     "check-types": "tsc --noEmit"
   },
