@@ -10,7 +10,8 @@
     "start": "webpack --watch --progress",
     "build": "webpack --progress",
     "lint": "eslint --ext .js,.ts,.tsx . --ignore-path .eslintignore",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "release": "webpack && ts-node release.ts"
   },
   "dependencies": {
     "@types/chrome": "^0.0.144",
