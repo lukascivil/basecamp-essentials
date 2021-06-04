@@ -32,7 +32,6 @@ const contentConfig = Object.assign({}, config, {
         { context: "src/", from: "*.json" },
         { context: "src/", from: "*.png" },
         { context: "src/", from: "*.html" },
-        { context: "src/", from: "*.js" },
         {
           from: "src/third-party/**/*",
           to: "third-party/[name][ext]",
@@ -62,4 +61,24 @@ const contentConfig = Object.assign({}, config, {
 //   },
 // });
 
-module.exports = [contentConfig];
+const popupConfig = Object.assign({}, config, {
+  entry: "./src/popup",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "popup.bundle.js",
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+    ],
+  },
+});
+
+module.exports = [contentConfig, popupConfig];
