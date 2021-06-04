@@ -22,8 +22,9 @@ export const renderChatSummary = (
 
   const authors: {
     [key in string]: { name: string; imageElement: any; value: number };
-  } = $("bc-grouped-dates")
-    .children()
+  } = $("bc-grouped-dates .date_divider")
+    .last()
+    .nextAll()
     .map((index, element) => {
       const name = $(element).find(".chat-line__author").text();
       const imageElement = $(element).find(".chat-line__avatar").html();
@@ -34,7 +35,7 @@ export const renderChatSummary = (
     .filter((author) => author.name.trim() !== "")
     .reduce((acc, author) => {
       if (typeof acc[author.name] == "undefined") {
-        acc[author.name] = { ...author, value: 1 };
+        acc[author.name] = { ...author, value: 0 };
       }
 
       acc[author.name] = { ...author, value: acc[author.name].value + 1 };
