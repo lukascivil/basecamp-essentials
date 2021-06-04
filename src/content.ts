@@ -19,7 +19,15 @@ import {
   renderChatSummary,
 } from "./features";
 
-const loop = (): void => {
+// Helpers
+import { db } from "./helpers/db";
+
+// Models
+import { BasecampEssentialsConfigParsed } from "./models/basecamp-essentials-config";
+
+const loop = (
+  basecampEssentialsConfigParsed: BasecampEssentialsConfigParsed
+): void => {
   const pageHasChatContent =
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
@@ -37,7 +45,7 @@ const loop = (): void => {
   renderPingSearch();
   renderBoostAttributeLength();
   renderIgnoreHey();
-  renderChatSummary();
+  renderChatSummary(basecampEssentialsConfigParsed);
 
   createReplyEventHandlers();
   createClearEventHandlers();
@@ -45,29 +53,33 @@ const loop = (): void => {
   createPingSearchEventHandlers();
 
   setTimeout(() => {
-    loop();
+    loop(basecampEssentialsConfigParsed);
   }, 2000);
 };
 
 const bootstrap = (): void => {
-  let pageHasChatContent: boolean =
-    window.location.pathname.includes("circles") ||
-    window.location.pathname.includes("chats");
+  db().then((basecampEssentialsConfigParsed) => {
+    console.log(basecampEssentialsConfigParsed);
 
-  if (pageHasChatContent) {
-    renderReplyButtons();
-    renderArticleAsAlert();
-    renderClearButton();
-  }
+    let pageHasChatContent: boolean =
+      window.location.pathname.includes("circles") ||
+      window.location.pathname.includes("chats");
 
-  renderBoostAttributeLength();
-  renderPingSearch();
+    if (pageHasChatContent) {
+      renderReplyButtons();
+      renderArticleAsAlert();
+      renderClearButton();
+    }
 
-  createIgnoreHeyEventHandlers();
-  createClearEventHandlers();
-  createReplyEventHandlers();
+    renderBoostAttributeLength();
+    renderPingSearch();
 
-  loop();
+    createIgnoreHeyEventHandlers();
+    createClearEventHandlers();
+    createReplyEventHandlers();
+
+    loop(basecampEssentialsConfigParsed);
+  });
 };
 
 /**
