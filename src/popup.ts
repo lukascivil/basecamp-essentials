@@ -1,4 +1,8 @@
-import { BasecampEssentialsConfigStorage } from "./models/basecamp-essentials-config";
+// Models
+import {
+  BasecampEssentialsConfigStorage,
+  SerializedFormConfig,
+} from "./models/basecamp-essentials-config";
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -6,7 +10,6 @@ document.addEventListener(
     chrome.storage.sync.get("basecamp_essentials_config", function (storage) {
       const basecampEssentialsConfigStorage =
         storage as BasecampEssentialsConfigStorage;
-      console.log(basecampEssentialsConfigStorage);
 
       if (!basecampEssentialsConfigStorage?.basecamp_essentials_config) {
         return;
@@ -20,8 +23,10 @@ document.addEventListener(
     });
 
     $(document).on("change", "form", function () {
-      const formValues = $("form").serializeArray();
-      const storage = { basecamp_essentials_config: formValues };
+      const formValues = $("form").serializeArray() as SerializedFormConfig;
+      const storage: BasecampEssentialsConfigStorage = {
+        basecamp_essentials_config: formValues,
+      };
 
       chrome.storage.sync.set(storage);
     });

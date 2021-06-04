@@ -59,8 +59,6 @@ const loop = (
 
 const bootstrap = (): void => {
   db().then((basecampEssentialsConfigParsed) => {
-    console.log(basecampEssentialsConfigParsed);
-
     let pageHasChatContent: boolean =
       window.location.pathname.includes("circles") ||
       window.location.pathname.includes("chats");
