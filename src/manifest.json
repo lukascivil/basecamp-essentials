@@ -3,9 +3,6 @@
   "name": "Basecamp Essentials",
   "description": "Opinionated features to increase your productivity with basecamp",
   "version": "1.0",
-  "background": {
-    "service_worker": "background-wrapper.js"
-  },
   "content_scripts": [
     {
       "matches": ["https://3.basecamp.com/*"],

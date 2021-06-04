@@ -32,6 +32,7 @@ const contentConfig = Object.assign({}, config, {
         { context: "src/", from: "*.json" },
         { context: "src/", from: "*.png" },
         { context: "src/", from: "*.html" },
+        { context: "src/", from: "*.js" },
         {
           from: "src/third-party/**/*",
           to: "third-party/[name][ext]",
@@ -41,24 +42,24 @@ const contentConfig = Object.assign({}, config, {
   ],
 });
 
-const backgroundConfig = Object.assign({}, config, {
-  entry: "./src/background",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "background.bundle.js",
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
-});
+// const backgroundConfig = Object.assign({}, config, {
+//   entry: "./src/background",
+//   output: {
+//     path: path.resolve(__dirname, "dist"),
+//     filename: "background.bundle.js",
+//   },
+//   resolve: {
+//     extensions: [".ts", ".tsx", ".js", ".json"],
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(ts|js)x?$/,
+//         exclude: /node_modules/,
+//         loader: "babel-loader",
+//       },
+//     ],
+//   },
+// });
 
-module.exports = [contentConfig, backgroundConfig];
+module.exports = [contentConfig];
