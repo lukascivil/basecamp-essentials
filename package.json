@@ -1,6 +1,6 @@
 {
   "name": "basecamp-essentials",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Opinionated features to increase your productivity with basecamp",
   "main": "index.js",
   "author": "lukascivil <lukas_civil@hotmail.com>",
