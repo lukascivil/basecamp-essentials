@@ -9,7 +9,6 @@ document.addEventListener(
       }
 
       items.basecamp_essentials_config.forEach((item) => {
-        console.log({ items });
         $(`#${item.name}`).val(item.value);
       });
     });
@@ -19,10 +18,6 @@ document.addEventListener(
       const storage = { basecamp_essentials_config: formValues };
 
       chrome.storage.sync.set(storage);
-
-      console.log(formValues);
-
-      alert(123);
     });
   },
   false
