@@ -11,8 +11,6 @@ export const getConfig = (): Promise<ParsedConfig> => {
     chrome.storage.sync.get("config", (storage) => {
       const configStorage = storage as ConfigStorage | undefined;
 
-      console.log({ configStorage });
-
       if (!configStorage) {
         setConfig(defaultParsedConfig).then(() => {
           resolve(defaultParsedConfig);
