@@ -4,7 +4,7 @@ export type SerializedArrayFormConfig = Array<{
 }>;
 
 export type ConfigStorage = {
-  config: ParsedConfig;
+  config?: ParsedConfig;
 };
 
 export type ParsedConfig = {
