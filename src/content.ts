@@ -20,14 +20,12 @@ import {
 } from "./features";
 
 // Helpers
-import { db } from "./helpers/db";
+import { getConfig } from "./helpers/db";
 
 // Models
-import { BasecampEssentialsConfigParsed } from "./models/basecamp-essentials-config";
+import { ParsedConfig } from "./models/basecamp-essentials-config";
 
-const loop = (
-  basecampEssentialsConfigParsed: BasecampEssentialsConfigParsed
-): void => {
+const loop = (parsedConfig: ParsedConfig): void => {
   const pageHasChatContent =
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
@@ -45,7 +43,7 @@ const loop = (
   renderPingSearch();
   renderBoostAttributeLength();
   renderIgnoreHey();
-  renderChatSummary(basecampEssentialsConfigParsed);
+  renderChatSummary(parsedConfig);
 
   createReplyEventHandlers();
   createClearEventHandlers();
@@ -53,12 +51,12 @@ const loop = (
   createPingSearchEventHandlers();
 
   setTimeout(() => {
-    loop(basecampEssentialsConfigParsed);
+    loop(parsedConfig);
   }, 2000);
 };
 
 const bootstrap = (): void => {
-  db().then((basecampEssentialsConfigParsed) => {
+  getConfig().then((parsedConfig) => {
     let pageHasChatContent: boolean =
       window.location.pathname.includes("circles") ||
       window.location.pathname.includes("chats");
@@ -76,7 +74,7 @@ const bootstrap = (): void => {
     createClearEventHandlers();
     createReplyEventHandlers();
 
-    loop(basecampEssentialsConfigParsed);
+    loop(parsedConfig);
   });
 };
 

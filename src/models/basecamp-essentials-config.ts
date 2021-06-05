@@ -1,14 +1,12 @@
-export type SerializedFormConfig = Array<{
+export type SerializedArrayFormConfig = Array<{
   name: "chatSummary";
   value: "true" | "false";
 }>;
 
-export type BasecampEssentialsConfigStorage =
-  | undefined
-  | {
-      basecamp_essentials_config: SerializedFormConfig;
-    };
+export type ConfigStorage = {
+  config: ParsedConfig;
+};
 
-export type BasecampEssentialsConfigParsed =
-  | undefined
-  | { chatSummary: "true" | "false" };
+export type ParsedConfig = {
+  chatSummary: "true" | "false";
+};

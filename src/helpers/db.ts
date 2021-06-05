@@ -1,25 +1,37 @@
+// Packages
 import {
-  BasecampEssentialsConfigStorage,
-  BasecampEssentialsConfigParsed,
+  ConfigStorage,
+  ParsedConfig,
 } from "../models/basecamp-essentials-config";
 
-export const db = (): Promise<BasecampEssentialsConfigParsed> => {
+const defaultParsedConfig: ParsedConfig = { chatSummary: "false" };
+
+export const getConfig = (): Promise<ParsedConfig> => {
   return new Promise((resolve) => {
-    chrome.storage.sync.get("basecamp_essentials_config", (storage) => {
-      const basecampEssentialsConfigStorage =
-        storage as BasecampEssentialsConfigStorage;
+    chrome.storage.sync.get("config", (storage) => {
+      const configStorage = storage as ConfigStorage | undefined;
 
-      const parsedConfig =
-        basecampEssentialsConfigStorage?.basecamp_essentials_config.reduce(
-          (accumulator, currentValue) => {
-            accumulator[currentValue.name] = currentValue.value;
+      console.log({ configStorage });
 
-            return accumulator;
-          },
-          {} as any
-        );
+      if (!configStorage) {
+        setConfig(defaultParsedConfig).then(() => {
+          resolve(defaultParsedConfig);
+        });
 
-      resolve(parsedConfig);
+        return;
+      }
+
+      resolve(configStorage.config);
+    });
+  });
+};
+
+export const setConfig = (parsedConfig: ParsedConfig): Promise<void> => {
+  const configStorage: ConfigStorage = { config: parsedConfig };
+
+  return new Promise((resolve) => {
+    chrome.storage.sync.set(configStorage, () => {
+      resolve();
     });
   });
 };

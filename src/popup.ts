@@ -1,34 +1,30 @@
 // Models
-import {
-  BasecampEssentialsConfigStorage,
-  SerializedFormConfig,
-} from "./models/basecamp-essentials-config";
+import { SerializedArrayFormConfig } from "./models/basecamp-essentials-config";
+
+// Helpers
+import { getConfig, setConfig } from "./helpers/db";
+import { ParseSerializedArrayFormConfig } from "./helpers/form";
 
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    chrome.storage.sync.get("basecamp_essentials_config", function (storage) {
-      const basecampEssentialsConfigStorage =
-        storage as BasecampEssentialsConfigStorage;
-
-      if (!basecampEssentialsConfigStorage?.basecamp_essentials_config) {
+    getConfig().then((parsedConfig) => {
+      if (!parsedConfig) {
         return;
       }
 
-      basecampEssentialsConfigStorage.basecamp_essentials_config.forEach(
-        (item) => {
-          $(`#${item.name}`).val(item.value);
-        }
-      );
+      Object.entries(parsedConfig).forEach(([key, value]) => {
+        $(`#${key}`).val(value);
+      });
     });
 
     $(document).on("change", "form", function () {
-      const formValues = $("form").serializeArray() as SerializedFormConfig;
-      const storage: BasecampEssentialsConfigStorage = {
-        basecamp_essentials_config: formValues,
-      };
+      const formValues = $(
+        "form"
+      ).serializeArray() as SerializedArrayFormConfig;
+      const parsedFormValues = ParseSerializedArrayFormConfig(formValues);
 
-      chrome.storage.sync.set(storage);
+      setConfig(parsedFormValues);
     });
   },
   false
