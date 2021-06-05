@@ -1,6 +1,8 @@
 const archiver = require("archiver");
 var fs = require("fs");
 
+var dir = "./release";
+
 /**
  * @param {String} source
  * @param {String} out
@@ -19,6 +21,10 @@ function zipDirectory(source: string, out: string): Promise<void> {
     stream.on("close", () => resolve());
     archive.finalize();
   });
+}
+
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
 }
 
 zipDirectory("./dist", "./release/basecamp_essentials.zip");
