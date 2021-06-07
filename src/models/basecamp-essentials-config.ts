@@ -1,5 +1,5 @@
 export type SerializedArrayFormConfig = Array<{
-  name: "chatSummary";
+  name: "chatSummary" | "coloredChatBorder";
   value: "true" | "false";
 }>;
 
@@ -9,4 +9,5 @@ export type ConfigStorage = {
 
 export type ParsedConfig = {
   chatSummary: "true" | "false";
+  coloredChatBorder: "true" | "false";
 };

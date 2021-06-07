@@ -37,7 +37,7 @@ const loop = (parsedConfig: ParsedConfig): void => {
   if (pageHasChatContent) {
     renderReplyButtons();
     renderClearButton();
-    renderArticleAsAlert();
+    renderArticleAsAlert(parsedConfig);
   }
 
   renderPingSearch();
@@ -63,7 +63,7 @@ const bootstrap = (): void => {
 
     if (pageHasChatContent) {
       renderReplyButtons();
-      renderArticleAsAlert();
+      renderArticleAsAlert(parsedConfig);
       renderClearButton();
     }
 

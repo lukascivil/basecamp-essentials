@@ -13,3 +13,17 @@ export const ParseSerializedArrayFormConfig = (
     return accumulator;
   }, {} as any);
 };
+
+export const compareKeys = (a: any = {}, b: any = {}): Boolean => {
+  let aKeys: Array<string> = [];
+  let bKeys: Array<string> = [];
+
+  try {
+    aKeys = Object.keys(a).sort();
+    bKeys = Object.keys(b).sort();
+  } catch (error) {
+    return false;
+  }
+
+  return JSON.stringify(aKeys) === JSON.stringify(bKeys);
+};
