@@ -9,9 +9,10 @@ import { ParsedConfig } from "../models/basecamp-essentials-config";
  */
 
 const renderQuestionsArticleAlert = (parsedConfig: ParsedConfig): void => {
-  const style = parsedConfig.coloredChatBorder
-    ? "border: 2px solid #f59a6b;"
-    : "background: #f59a6b;";
+  const style =
+    parsedConfig.coloredChatBorder === "true"
+      ? "border: 2px solid #f59a6b;"
+      : "background: #f59a6b;";
 
   $('.chat-line__body:contains("?")').closest(".chat-line__bubble").attr({
     style,
@@ -19,9 +20,10 @@ const renderQuestionsArticleAlert = (parsedConfig: ParsedConfig): void => {
 };
 
 const renderGitHubMergedArticleAlert = (parsedConfig: ParsedConfig): void => {
-  const style = parsedConfig.coloredChatBorder
-    ? "border: 2px solid #bca4e6;"
-    : "background: #bca4e6;";
+  const style =
+    parsedConfig.coloredChatBorder === "true"
+      ? "border: 2px solid #bca4e6;"
+      : "background: #bca4e6;";
 
   $('.chat-line__body:contains("merged pull request")')
     .closest(".chat-line__bubble")
@@ -33,9 +35,10 @@ const renderGitHubMergedArticleAlert = (parsedConfig: ParsedConfig): void => {
 const renderGitHubReadyForReviewArticleAlert = (
   parsedConfig: ParsedConfig
 ): void => {
-  const style = parsedConfig.coloredChatBorder
-    ? "border: 2px solid #7ed182;"
-    : "background: #7ed182;";
+  const style =
+    parsedConfig.coloredChatBorder === "true"
+      ? "border: 2px solid #7ed182;"
+      : "background: #7ed182;";
 
   $('.chat-line__body:contains("/pull/")').closest(".chat-line__bubble").attr({
     style,
@@ -45,9 +48,10 @@ const renderGitHubReadyForReviewArticleAlert = (
 const renderGitHubOpennedPullRequestArticleAlert = (
   parsedConfig: ParsedConfig
 ): void => {
-  const style = parsedConfig.coloredChatBorder
-    ? "border: 2px solid #b0b0b0;"
-    : "background: #b0b0b0;";
+  const style =
+    parsedConfig.coloredChatBorder === "true"
+      ? "border: 2px solid #b0b0b0;"
+      : "background: #b0b0b0;";
 
   $('.chat-line__body:contains("opened pull request")')
     .closest(".chat-line__bubble")
