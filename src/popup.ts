@@ -1,9 +1,9 @@
 // Models
-import { SerializedArrayFormConfig } from "./models/basecamp-essentials-config";
+import { ParsedConfig } from "./models/config";
 
 // Helpers
 import { getConfig, setConfig } from "./helpers/db";
-import { ParseSerializedArrayFormConfig } from "./helpers/form";
+import { ParseSerializedArrayForm } from "./helpers/form";
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -19,10 +19,9 @@ document.addEventListener(
     });
 
     $(document).on("change", "form", function () {
-      const formValues = $(
-        "form"
-      ).serializeArray() as SerializedArrayFormConfig;
-      const parsedFormValues = ParseSerializedArrayFormConfig(formValues);
+      const formValues = $("form").serializeArray();
+      const parsedFormValues =
+        ParseSerializedArrayForm<ParsedConfig>(formValues);
 
       setConfig(parsedFormValues);
     });

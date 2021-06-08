@@ -1,12 +1,10 @@
-// Packages
-import {
-  ParsedConfig,
-  SerializedArrayFormConfig,
-} from "../models/basecamp-essentials-config";
+type ParsedSerializedArrayForm = {
+  [key in string]: string;
+};
 
-export const ParseSerializedArrayFormConfig = (
-  formValues: SerializedArrayFormConfig
-): ParsedConfig => {
+export const ParseSerializedArrayForm = <T = ParsedSerializedArrayForm>(
+  formValues: Array<JQuery.NameValuePair>
+): T => {
   return formValues.reduce((accumulator, currentValue) => {
     accumulator[currentValue.name] = currentValue.value;
 

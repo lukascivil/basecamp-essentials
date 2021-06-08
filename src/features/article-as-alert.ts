@@ -2,7 +2,7 @@
 import $ from "jquery";
 
 // Models
-import { ParsedConfig } from "../models/basecamp-essentials-config";
+import { ParsedConfig } from "../models/config";
 
 /**
  * Renders

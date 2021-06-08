@@ -1,8 +1,5 @@
 // Packages
-import {
-  ConfigStorage,
-  ParsedConfig,
-} from "../models/basecamp-essentials-config";
+import { ConfigStorage, ParsedConfig } from "../models/config";
 
 // Helpers
 import { compareKeys } from "./form";

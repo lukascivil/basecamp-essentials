@@ -23,7 +23,7 @@ import {
 import { getConfig } from "./helpers/db";
 
 // Models
-import { ParsedConfig } from "./models/basecamp-essentials-config";
+import { ParsedConfig } from "./models/config";
 
 const loop = (parsedConfig: ParsedConfig): void => {
   const pageHasChatContent =
