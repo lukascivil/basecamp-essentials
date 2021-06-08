@@ -58,8 +58,9 @@ export const createPingSearchEventHandlers = (): void => {
           const text: string = $(element).attr("aria-label") || "";
           const keyWords =
             parsedFormValues.pingSearchPrecision === "true"
-              ? parsedFormValues.pingSearch.split(" ")
-              : [parsedFormValues.pingSearch];
+              ? [parsedFormValues.pingSearch]
+              : parsedFormValues.pingSearch.split(" ");
+
           const hasSomeKeyWord = keyWords.some((keyWord) =>
             hasSubstring(
               text,
