@@ -1,10 +1,7 @@
 // Packages
 import $ from "jquery";
 
-const buildLineBodyRecursiveMessageFromNode = (
-  // eslint-disable-next-line no-undef
-  node: JQuery.Node
-): string => {
+const buildLineBodyRecursiveMessageFromNode = (node: JQuery.Node): string => {
   let message = $(node).text().trim();
   const tagName = $(node).prop("tagName");
 
@@ -25,7 +22,6 @@ const buildLineBodyRecursiveMessageFromNode = (
 };
 
 export const tryBuildReplyBodyMessageFromLineBodyNodes = (
-  // eslint-disable-next-line no-undef
   lineBodyNodes: Array<JQuery.Node>
 ): string => {
   return lineBodyNodes
