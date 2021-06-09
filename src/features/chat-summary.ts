@@ -16,7 +16,7 @@ export const renderChatSummary = (parsedConfig: ParsedConfig): void => {
   }
 
   const authors: {
-    [key in string]: { name: string; imageElement: any; value: number };
+    [key: string]: { name: string; imageElement: any; value: number };
   } = $("bc-grouped-dates .date_divider")
     .last()
     .nextAll()

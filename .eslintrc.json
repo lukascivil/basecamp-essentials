@@ -2,7 +2,11 @@
   "env": {
     "browser": true,
     "node": true,
-    "es2021": true
+    "es2021": true,
+    "webextensions": true
+  },
+  "globals": {
+    "JQuery": true
   },
   "parser": "@typescript-eslint/parser",
   "extends": ["eslint:recommended"],
@@ -13,18 +17,10 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-unused-vars": ["warn"],
-    "overrides": [
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
       {
-        "files": ["*.ts"],
-        "parser": "@typescript-eslint/parser",
-        "rules": {
-          "@typescript-eslint/explicit-function-return-type": [
-            "error",
-            {
-              "allowExpressions": true
-            }
-          ]
-        }
+        "allowExpressions": true
       }
     ],
     "@typescript-eslint/no-inferrable-types": [

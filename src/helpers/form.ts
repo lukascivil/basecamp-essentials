@@ -1,5 +1,5 @@
 type ParsedSerializedArrayForm = {
-  [key in string]: string;
+  [key: string]: string;
 };
 
 export const ParseSerializedArrayForm = <T = ParsedSerializedArrayForm>(

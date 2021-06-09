@@ -33,8 +33,8 @@ export interface SearchConfig {
 }
 
 const createPattern = (accented: any, searchConfig: SearchConfig): RegExp => {
-  let toSearch: string = "";
-  let keyWordTemp: any = [
+  let toSearch = "";
+  let keyWordTemp = [
     searchConfig.keyWord.replace(/([|()[{.+*?^$\\])/g, "\\$1"),
   ];
 
