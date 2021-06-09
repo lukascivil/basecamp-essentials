@@ -3,7 +3,8 @@
     "browser": true,
     "node": true,
     "es2021": true,
-    "webextensions": true
+    "webextensions": true,
+    "jquery": true
   },
   "globals": {
     "JQuery": true
