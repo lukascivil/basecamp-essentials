@@ -5,11 +5,13 @@ import $ from "jquery";
  * Renders
  */
 
-export const removeIgnoreHey = (): void => {
-  $(".btn-hideUnmarked").detach();
-};
-
 export const renderIgnoreHey = (): void => {
+  const hasIgnoreHeyButton = $(".btn-hideUnmarked").length;
+
+  if (hasIgnoreHeyButton) {
+    return;
+  }
+
   $("section.readings--unreads")
     .find(".txt--subtle")
     .append(

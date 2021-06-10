@@ -11,7 +11,6 @@ import {
   createReplyEventHandlers,
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
-  removeIgnoreHey,
   renderArticleAsAlert,
   renderPingSearch,
   createPingSearchEventHandlers,
@@ -30,7 +29,6 @@ const loop = (parsedConfig: ParsedConfig): void => {
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
 
-  removeIgnoreHey();
   removeReplyButtons();
 
   if (pageHasChatContent) {
