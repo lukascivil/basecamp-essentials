@@ -8,7 +8,6 @@ import {
   renderBoostAttributeLength,
   createClearEventHandlers,
   removeReplyButtons,
-  removeClearButtons,
   createReplyEventHandlers,
   renderIgnoreHey,
   createIgnoreHeyEventHandlers,
@@ -31,7 +30,6 @@ const loop = (parsedConfig: ParsedConfig): void => {
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
 
-  removeClearButtons();
   removeIgnoreHey();
   removeReplyButtons();
 

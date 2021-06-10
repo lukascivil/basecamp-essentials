@@ -5,14 +5,23 @@ import $ from "jquery";
  * Renders
  */
 
-export const removeClearButtons = (): void => {
-  $(".btn-clear").detach();
-};
+export const renderButton = (): void => {
+  const hasClearButton = $(".btn-clear").length;
 
-export const renderClearButton = (): void => {
+  if (hasClearButton) {
+    return;
+  }
+
+  $(".chat__mic.input").attr({
+    style: "padding: 1rem 11rem 1rem 1rem !important;",
+  });
   $(".chat__tools").append(
     `<button class="btn btn-outline-info btn-lg btn-clear" style="padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Clear</button>`
   );
+};
+
+export const renderClearButton = (): void => {
+  renderButton();
 };
 
 /**
