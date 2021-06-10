@@ -17,6 +17,7 @@ import {
   renderPingSearch,
   createPingSearchEventHandlers,
   renderChatSummary,
+  renderAdditionalEmojis,
 } from "./features";
 
 // Helpers
@@ -40,6 +41,7 @@ const loop = (parsedConfig: ParsedConfig): void => {
     renderArticleAsAlert(parsedConfig);
   }
 
+  renderAdditionalEmojis();
   renderPingSearch();
   renderBoostAttributeLength();
   renderIgnoreHey();
