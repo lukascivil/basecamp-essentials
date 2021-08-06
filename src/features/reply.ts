@@ -56,7 +56,7 @@ const renderReplyAllTrixMessage = (event: any): void => {
   const firstMessage =
     tryBuildReplyBodyMessageFromLineBodyNodes(firstLineBodyNodes);
   const nextMessages = articles
-    .map((_, article) => {
+    .map((_: any, article: any) => {
       const lineBodyNode = $.parseHTML(
         $(article).find(".chat-line__body").html()
       );
@@ -64,11 +64,13 @@ const renderReplyAllTrixMessage = (event: any): void => {
       return tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNode);
     })
     .toArray()
-    .map((message) => `• ${message}`)
+    .map((message: string) => `• ${message}`)
     .join("<br>");
 
   const body = `• ${firstMessage} <br> ${nextMessages}`;
-  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> ${body}<br><br> > </blockquote>`;
+  // Remove @ mentions from the string to avoid unnecessarily notifying people
+  const sanitizedBody = body.replace(/(?:\s)+@(?=w+)|^@(?=w+)/, "");
+  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> ${sanitizedBody}<br><br> > </blockquote>`;
 
   $("trix-editor").html(reply);
 };
