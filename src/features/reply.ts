@@ -34,9 +34,9 @@ export const renderReplyButtons = (): void => {
     );
 };
 
-const sanitizeBody = (body: string) => {
-  // Remove @ mentions from the string to avoid unnecessarily notifying people
-  return body.replace(/(?=\s*)@/, "");
+const sanitizeBody = (body: string): string => {
+  // Remove @ default mentions from the string to avoid unnecessarily notifying people
+  return body.replace(/(?=\s*)@/, "@.");
 };
 
 const renderReplyAllTrixMessage = (event: any): void => {
