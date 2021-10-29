@@ -15,13 +15,13 @@ export const removeReplyButtons = (): void => {
 };
 
 export const renderReplyButtons = (): void => {
-  $("article")
+  $("turbo-frame.chat-line")
     .not(".chat-line--me")
     .append(
       `<button class="btn btn-outline-info btn-lg btn-reply" style="padding: 0px 4px 0px 4px; font-size: 1.2rem; color: grey;">Reply</button>`
     );
 
-  $("article")
+  $("turbo-frame.chat-line")
     .not(".chat-line--thread")
     .not(".chat-line--me")
     .filter((_, element) => {
@@ -47,18 +47,18 @@ const renderReplyAllTrixMessage = (event: any): void => {
     articleCreatedAt
   )} atrás`;
   const creatorId = $(event.currentTarget).parent().attr("data-creator-id");
-  const articles = $(event.currentTarget)
+  const turboFrames = $(event.currentTarget)
     .parent()
-    .nextUntil($(`[data-creator-id!="` + creatorId + `"]`), "article");
+    .nextUntil($(`[data-creator-id!="` + creatorId + `"]`), "turbo-frame");
   const firstLineBodyNodes = $.parseHTML(
     $(event.currentTarget).parent().find(".chat-line__body").html()
   );
   const firstMessage =
     tryBuildReplyBodyMessageFromLineBodyNodes(firstLineBodyNodes);
-  const nextMessages = articles
-    .map((_, article) => {
+  const nextMessages = turboFrames
+    .map((_, turboFrame) => {
       const lineBodyNode = $.parseHTML(
-        $(article).find(".chat-line__body").html()
+        $(turboFrame).find(".chat-line__body").html()
       );
 
       return tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNode);
@@ -68,7 +68,7 @@ const renderReplyAllTrixMessage = (event: any): void => {
     .join("<br>");
 
   const body = `• ${firstMessage} <br> ${nextMessages}`;
-  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> ${body}<br><br> > </blockquote>`;
+  const reply = `${creatorName} - ${friendlyTimeMessage} <br> ${body}<br><br> >`;
 
   $("trix-editor").html(reply);
 };
@@ -85,10 +85,12 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
   const friendlyTimeMessage = `há ${computeFriendlyDifferenceFromNow(
     articleCreatedAt
   )} atrás`;
-  const article = $(event.currentTarget).closest("article")[0];
-  const lineBodyNodes = $.parseHTML($(article).find(".chat-line__body").html());
+  const turboFrame = $(event.currentTarget).closest("turbo-frame")[0];
+  const lineBodyNodes = $.parseHTML(
+    $(turboFrame).find(".chat-line__body").html()
+  );
   const bodyMessage = tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNodes);
-  const reply = `<blockquote>${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> > </blockquote>`;
+  const reply = `${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> >`;
 
   $("trix-editor").html(reply);
 };
@@ -98,7 +100,7 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
  */
 
 export const createReplyEventHandlers = (): void => {
-  $("article.chat-line")
+  $("turbo-frame.chat-line")
     .off()
     .on("click", ".btn-reply-all, .btn-reply", function (event) {
       const isReplyAll = $(event.currentTarget).hasClass("btn-reply-all");
