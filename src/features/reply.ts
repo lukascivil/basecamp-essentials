@@ -36,7 +36,7 @@ export const renderReplyButtons = (): void => {
 
 const sanitizeBody = (body: string): string => {
   // Remove @ default mentions from the string to avoid unnecessarily notifying people
-  return body.replace(/(?=\s*)@/, "@.");
+  return body.replace(/(?=\s*)@/g, "@.");
 };
 
 const renderReplyAllTrixMessage = (event: any): void => {
@@ -69,7 +69,7 @@ const renderReplyAllTrixMessage = (event: any): void => {
       return tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNode);
     })
     .toArray()
-    .map((message: string) => `• ${message}`)
+    .map((message) => `• ${message}`)
     .join("<br>");
 
   const body = sanitizeBody(`• ${firstMessage} <br> ${nextMessages}`);
@@ -94,7 +94,9 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
   const lineBodyNodes = $.parseHTML(
     $(turboFrame).find(".chat-line__body").html()
   );
-  const bodyMessage = sanitizeBody(tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNodes));
+  const bodyMessage = sanitizeBody(
+    tryBuildReplyBodyMessageFromLineBodyNodes(lineBodyNodes)
+  );
   const reply = `${creatorName} - ${friendlyTimeMessage} <br> • ${bodyMessage}<br><br> >`;
 
   $("trix-editor").html(reply);
