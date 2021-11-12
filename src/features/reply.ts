@@ -48,7 +48,7 @@ const renderReplyAllTrixMessage = (event: any): void => {
     .parent()
     .find("time")
     .attr("datetime");
-  const friendlyTimeMessage = `há ${computeFriendlyDifferenceFromNow(
+  const friendlyTimeMessage = `${computeFriendlyDifferenceFromNow(
     articleCreatedAt
   )} atrás`;
   const creatorId = $(event.currentTarget).parent().attr("data-creator-id");
@@ -87,7 +87,7 @@ const renderReplyOnlyTrixMessage = (event: any): void => {
     .parent()
     .find("time")
     .attr("datetime");
-  const friendlyTimeMessage = `há ${computeFriendlyDifferenceFromNow(
+  const friendlyTimeMessage = `${computeFriendlyDifferenceFromNow(
     articleCreatedAt
   )} atrás`;
   const turboFrame = $(event.currentTarget).closest("turbo-frame")[0];
