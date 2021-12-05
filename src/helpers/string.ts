@@ -62,3 +62,8 @@ export const hasSubstring = (
 
   return Boolean(text.match(regExp));
 };
+
+export const sanitizeChatBody = (body: string): string => {
+  // Remove @ default mentions from the string to avoid unnecessarily notifying people
+  return body.replace(/(?=\s*)@/g, "@.");
+};
