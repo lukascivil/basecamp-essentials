@@ -10,6 +10,10 @@ Opinionated features to increase your productivity with basecamp
   <img width="1000" src="https://user-images.githubusercontent.com/7409802/120087649-18f69880-c0c0-11eb-9016-a8a058aed030.png">
 </p>
 
+### Extension available
+
+[Chrome](https://chrome.google.com/webstore/detail/basecamp-essentials/aebodfjhnegpfdainpppdnkondmdcnhh)
+
 ### Features
 
 - Reply
