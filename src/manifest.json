@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Basecamp Essentials",
   "description": "Opinionated features to increase your productivity with basecamp",
-  "version": "1.7.0",
+  "version": "1.9.0",
   "content_scripts": [
     {
       "matches": ["https://3.basecamp.com/*"],
