@@ -16,6 +16,8 @@ import {
   createPingSearchEventHandlers,
   renderChatSummary,
   renderAdditionalEmojis,
+  renderTodoContent,
+  createTodoContentEventHandlers,
 } from "./features";
 
 // Helpers
@@ -28,6 +30,7 @@ const loop = (parsedConfig: ParsedConfig): void => {
   const pageHasChatContent =
     window.location.pathname.includes("circles") ||
     window.location.pathname.includes("chats");
+  const isTodoPage = window.location.pathname.includes("todos/");
 
   removeReplyButtons();
 
@@ -35,6 +38,11 @@ const loop = (parsedConfig: ParsedConfig): void => {
     renderReplyButtons();
     renderClearButton();
     renderArticleAsAlert(parsedConfig);
+  }
+
+  if (isTodoPage) {
+    renderTodoContent();
+    createTodoContentEventHandlers();
   }
 
   renderAdditionalEmojis();
