@@ -15,6 +15,8 @@ const computeFriendlyDifferenceByDate = (
 
   if (hours === 0) {
     const minutes = differenceInMinutes(startDate, finalDate);
+    if (minutes === 0) return "Alguns segundos"
+    
     message = minutes === 1 ? "minuto" : "minutos";
 
     return `${minutes} ${message}`;
