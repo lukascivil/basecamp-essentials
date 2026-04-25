@@ -4,3 +4,4 @@ yarn-error.log
 release/
 dist.crx
 dist.pem
+.claude/settings.local.json

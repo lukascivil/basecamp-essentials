@@ -1,8 +1,8 @@
 export type ConfigStorage = {
-  config?: ParsedConfig;
-};
+  config?: ParsedConfig
+}
 
 export type ParsedConfig = {
-  chatSummary: "true" | "false";
-  coloredChatBorder: "true" | "false";
-};
+  chatSummary: "true" | "false"
+  coloredChatBorder: "true" | "false"
+}

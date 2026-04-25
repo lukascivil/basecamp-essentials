@@ -1,19 +1,19 @@
 // Packages
-import { ConfigStorage, ParsedConfig } from "../models/config";
+import { ConfigStorage, ParsedConfig } from "../models/config"
 
 // Helpers
-import { compareKeys } from "./form";
+import { compareKeys } from "./form"
 
-const configEntityName = "config";
+const configEntityName = "config"
 const defaultParsedConfig: ParsedConfig = {
   chatSummary: "false",
   coloredChatBorder: "false",
-};
+}
 
 export const getConfig = (): Promise<ParsedConfig> => {
   return new Promise((resolve) => {
     chrome.storage.sync.get(configEntityName, (storage) => {
-      const configStorage = storage as ConfigStorage;
+      const configStorage = storage as ConfigStorage
 
       if (
         !configStorage?.config ||
@@ -22,25 +22,25 @@ export const getConfig = (): Promise<ParsedConfig> => {
         const newConfig: ParsedConfig = {
           ...defaultParsedConfig,
           ...configStorage.config,
-        };
+        }
         setConfig(newConfig).then(() => {
-          resolve(newConfig);
-        });
+          resolve(newConfig)
+        })
 
-        return;
+        return
       }
 
-      resolve(configStorage.config);
-    });
-  });
-};
+      resolve(configStorage.config)
+    })
+  })
+}
 
 export const setConfig = (parsedConfig: ParsedConfig): Promise<void> => {
-  const configStorage: ConfigStorage = { [configEntityName]: parsedConfig };
+  const configStorage: ConfigStorage = { [configEntityName]: parsedConfig }
 
   return new Promise((resolve) => {
     chrome.storage.sync.set(configStorage, () => {
-      resolve();
-    });
-  });
-};
+      resolve()
+    })
+  })
+}
