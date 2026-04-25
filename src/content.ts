@@ -1,5 +1,5 @@
 // Packages
-import $ from "jquery";
+import $ from "jquery"
 
 // Features
 import {
@@ -18,75 +18,75 @@ import {
   renderAdditionalEmojis,
   renderTodoContent,
   createTodoContentEventHandlers,
-} from "./features";
+} from "./features"
 
 // Helpers
-import { getConfig } from "./helpers/db";
+import { getConfig } from "./helpers/db"
 
 // Models
-import { ParsedConfig } from "./models/config";
+import { ParsedConfig } from "./models/config"
 
 const loop = (parsedConfig: ParsedConfig): void => {
   const pageHasChatContent =
     window.location.pathname.includes("circles") ||
-    window.location.pathname.includes("chats");
-  const isTodoPage = window.location.pathname.includes("todos/");
+    window.location.pathname.includes("chats")
+  const isTodoPage = window.location.pathname.includes("todos/")
 
-  removeReplyButtons();
+  removeReplyButtons()
 
   if (pageHasChatContent) {
-    renderReplyButtons();
-    renderClearButton();
-    renderArticleAsAlert(parsedConfig);
+    renderReplyButtons()
+    renderClearButton()
+    renderArticleAsAlert(parsedConfig)
   }
 
   if (isTodoPage) {
-    renderTodoContent();
-    createTodoContentEventHandlers();
+    renderTodoContent()
+    createTodoContentEventHandlers()
   }
 
-  renderAdditionalEmojis();
-  renderPingSearch();
-  renderBoostAttributeLength();
-  renderIgnoreHey();
-  renderChatSummary(parsedConfig);
+  renderAdditionalEmojis()
+  renderPingSearch()
+  renderBoostAttributeLength()
+  renderIgnoreHey()
+  renderChatSummary(parsedConfig)
 
-  createReplyEventHandlers();
-  createClearEventHandlers();
-  createIgnoreHeyEventHandlers();
-  createPingSearchEventHandlers();
+  createReplyEventHandlers()
+  createClearEventHandlers()
+  createIgnoreHeyEventHandlers()
+  createPingSearchEventHandlers()
 
   setTimeout(() => {
-    loop(parsedConfig);
-  }, 2000);
-};
+    loop(parsedConfig)
+  }, 2000)
+}
 
 const bootstrap = (): void => {
   getConfig().then((parsedConfig) => {
     const pageHasChatContent: boolean =
       window.location.pathname.includes("circles") ||
-      window.location.pathname.includes("chats");
+      window.location.pathname.includes("chats")
 
     if (pageHasChatContent) {
-      renderReplyButtons();
-      renderArticleAsAlert(parsedConfig);
-      renderClearButton();
+      renderReplyButtons()
+      renderArticleAsAlert(parsedConfig)
+      renderClearButton()
     }
 
-    renderBoostAttributeLength();
-    renderPingSearch();
+    renderBoostAttributeLength()
+    renderPingSearch()
 
-    createIgnoreHeyEventHandlers();
-    createClearEventHandlers();
-    createReplyEventHandlers();
+    createIgnoreHeyEventHandlers()
+    createClearEventHandlers()
+    createReplyEventHandlers()
 
-    loop(parsedConfig);
-  });
-};
+    loop(parsedConfig)
+  })
+}
 
 /**
  * Init Extension
  */
 $(function () {
-  bootstrap();
-});
+  bootstrap()
+})

@@ -1,30 +1,30 @@
 // Models
-import { ParsedConfig } from "./models/config";
+import { ParsedConfig } from "./models/config"
 
 // Helpers
-import { getConfig, setConfig } from "./helpers/db";
-import { ParseSerializedArrayForm } from "./helpers/form";
+import { getConfig, setConfig } from "./helpers/db"
+import { ParseSerializedArrayForm } from "./helpers/form"
 
 document.addEventListener(
   "DOMContentLoaded",
   function () {
     getConfig().then((parsedConfig) => {
       if (!parsedConfig) {
-        return;
+        return
       }
 
       Object.entries(parsedConfig).forEach(([key, value]) => {
-        $(`#${key}`).val(value);
-      });
-    });
+        $(`#${key}`).val(value)
+      })
+    })
 
     $(document).on("change", "form", function () {
-      const formValues = $("form").serializeArray();
+      const formValues = $("form").serializeArray()
       const parsedFormValues =
-        ParseSerializedArrayForm<ParsedConfig>(formValues);
+        ParseSerializedArrayForm<ParsedConfig>(formValues)
 
-      setConfig(parsedFormValues);
-    });
+      setConfig(parsedFormValues)
+    })
   },
-  false
-);
+  false,
+)

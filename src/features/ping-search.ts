@@ -1,12 +1,12 @@
 // Packages
-import $ from "jquery";
+import $ from "jquery"
 
 // Helpers
-import { hasSubstring } from "../helpers/string";
-import { ParseSerializedArrayForm } from "../helpers/form";
+import { hasSubstring } from "../helpers/string"
+import { ParseSerializedArrayForm } from "../helpers/form"
 
 // Models
-import { ParsedPingSearch } from "../models/ping-search";
+import { ParsedPingSearch } from "../models/ping-search"
 
 /**
  * Renders
@@ -21,17 +21,17 @@ const addPingSearch = (): void => {
           <option value="true">Precision</option>
         </select>
       </form>
-    `
-  );
-};
+    `,
+  )
+}
 
 export const renderPingSearch = (): void => {
-  const domHasPingSearch = $("#search-form").length;
+  const domHasPingSearch = $("#search-form").length
 
   if (!domHasPingSearch) {
-    addPingSearch();
+    addPingSearch()
   }
-};
+}
 
 /**
  * Event Handlers
@@ -41,37 +41,37 @@ export const createPingSearchEventHandlers = (): void => {
   $("#search-form")
     .off()
     .on("change", function (event) {
-      const formValues = $(event.currentTarget).serializeArray();
+      const formValues = $(event.currentTarget).serializeArray()
       const parsedFormValues =
-        ParseSerializedArrayForm<ParsedPingSearch>(formValues);
+        ParseSerializedArrayForm<ParsedPingSearch>(formValues)
 
-      $("a.circle-avatars").removeClass("ping-search-found");
-      $("a.circle-avatars").show();
+      $("a.circle-avatars").removeClass("ping-search-found")
+      $("a.circle-avatars").show()
 
       if (parsedFormValues.pingSearch === "") {
-        return;
+        return
       }
 
       $("article")
         .find(`a`)
         .filter((_, element) => {
-          const text: string = $(element).attr("aria-label") || "";
+          const text: string = $(element).attr("aria-label") || ""
           const keyWords =
             parsedFormValues.pingSearchPrecision === "true"
               ? [parsedFormValues.pingSearch]
-              : parsedFormValues.pingSearch.split(" ");
+              : parsedFormValues.pingSearch.split(" ")
 
           const hasSomeKeyWord = keyWords.some((keyWord) =>
             hasSubstring(
               text,
               keyWord,
-              parsedFormValues.pingSearchPrecision === "true"
-            )
-          );
+              parsedFormValues.pingSearchPrecision === "true",
+            ),
+          )
 
-          return hasSomeKeyWord;
+          return hasSomeKeyWord
         })
-        .addClass("ping-search-found");
-      $("a.circle-avatars:not(.ping-search-found)").hide();
-    });
-};
+        .addClass("ping-search-found")
+      $("a.circle-avatars:not(.ping-search-found)").hide()
+    })
+}

@@ -4,43 +4,43 @@ import {
   differenceInHours,
   differenceInMinutes,
   parseISO,
-} from "date-fns";
+} from "date-fns"
 
 const computeFriendlyDifferenceByDate = (
   startDate: Date,
-  finalDate: Date
+  finalDate: Date,
 ): string => {
-  const hours = differenceInHours(startDate, finalDate);
-  let message = hours === 1 ? "hora" : "horas";
+  const hours = differenceInHours(startDate, finalDate)
+  let message = hours === 1 ? "hora" : "horas"
 
   if (hours === 0) {
-    const minutes = differenceInMinutes(startDate, finalDate);
+    const minutes = differenceInMinutes(startDate, finalDate)
     if (minutes === 0) return "Alguns segundos"
-    
-    message = minutes === 1 ? "minuto" : "minutos";
 
-    return `${minutes} ${message}`;
+    message = minutes === 1 ? "minuto" : "minutos"
+
+    return `${minutes} ${message}`
   }
 
   if (hours < 24) {
-    return `${hours} ${message}`;
+    return `${hours} ${message}`
   }
 
-  const days = differenceInDays(startDate, finalDate);
-  message = days === 1 ? "dia" : "dias";
+  const days = differenceInDays(startDate, finalDate)
+  message = days === 1 ? "dia" : "dias"
 
-  return `${days} ${message}`;
-};
+  return `${days} ${message}`
+}
 
 export const computeFriendlyDifferenceFromNow = (
-  date: string | undefined
+  date: string | undefined,
 ): string => {
   if (!date) {
-    return "...";
+    return "..."
   }
 
-  const parsedDate = parseISO(date);
-  const today = new Date();
+  const parsedDate = parseISO(date)
+  const today = new Date()
 
-  return computeFriendlyDifferenceByDate(today, parsedDate);
-};
+  return computeFriendlyDifferenceByDate(today, parsedDate)
+}

@@ -1,4 +1,4 @@
 export type ParsedPingSearch = {
-  pingSearch: string;
-  pingSearchPrecision: "true" | "false";
-};
+  pingSearch: string
+  pingSearchPrecision: "true" | "false"
+}

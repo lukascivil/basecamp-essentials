@@ -1,15 +1,15 @@
 // Packages
-import $ from "jquery";
+import $ from "jquery"
 
 /**
  * Renders
  */
 
 export const renderEmojis = (): void => {
-  const hasAdditionalEmojis = $("[title='Castle']").length;
+  const hasAdditionalEmojis = $("[title='Castle']").length
 
   if (hasAdditionalEmojis) {
-    return;
+    return
   }
 
   $(".emoji-picker__emojis").append(
@@ -27,10 +27,10 @@ export const renderEmojis = (): void => {
     <button name="button" type="button" title="Memo" class="emoji-picker__button plain-btn" data-role="emoji_picker_character">📝</button>
     <button name="button" type="button" title="Warning" class="emoji-picker__button plain-btn" data-role="emoji_picker_character">⚠️</button>
     <button name="button" type="button" title="Cross Mark" class="emoji-picker__button plain-btn" data-role="emoji_picker_character">❌</button>
-    <button name="button" type="button" title="OK Button" class="emoji-picker__button plain-btn" data-role="emoji_picker_character">🆗</button>`
-  );
-};
+    <button name="button" type="button" title="OK Button" class="emoji-picker__button plain-btn" data-role="emoji_picker_character">🆗</button>`,
+  )
+}
 
 export const renderAdditionalEmojis = (): void => {
-  renderEmojis();
-};
+  renderEmojis()
+}

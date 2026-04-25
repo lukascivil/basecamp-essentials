@@ -2,6 +2,8 @@ const js = require("@eslint/js");
 const tsPlugin = require("@typescript-eslint/eslint-plugin");
 const tsParser = require("@typescript-eslint/parser");
 const globals = require("globals");
+const prettierPlugin = require("eslint-plugin-prettier");
+const prettierConfig = require("eslint-config-prettier");
 
 module.exports = [
   { ignores: ["src/third-party/**", "dist/**"] },
@@ -26,8 +28,11 @@ module.exports = [
     },
     plugins: {
       "@typescript-eslint": tsPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
+      ...prettierConfig.rules,
+      "prettier/prettier": "error",
       "no-unused-vars": ["warn"],
       "@typescript-eslint/explicit-function-return-type": [
         "error",
