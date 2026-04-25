@@ -1,12 +1,12 @@
-var path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+var path = require("path")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 var config = {
   module: {},
   plugins: [new CleanWebpackPlugin()],
   devtool: "source-map",
-};
+}
 
 const contentConfig = Object.assign({}, config, {
   entry: "./src/content",
@@ -39,7 +39,7 @@ const contentConfig = Object.assign({}, config, {
       ],
     }),
   ],
-});
+})
 
 // const backgroundConfig = Object.assign({}, config, {
 //   entry: "./src/background",
@@ -79,6 +79,6 @@ const popupConfig = Object.assign({}, config, {
       },
     ],
   },
-});
+})
 
-module.exports = [contentConfig, popupConfig];
+module.exports = [contentConfig, popupConfig]
