@@ -5,36 +5,38 @@
   "main": "index.js",
   "author": "lukascivil <lukas_civil@hotmail.com>",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "start": "webpack --watch --progress",
     "build": "webpack --progress",
     "lint": "eslint --ext .js,.ts,.tsx . --ignore-path .eslintignore",
     "check-types": "tsc --noEmit",
-    "release": "webpack && ts-node release.ts"
+    "release": "webpack && ts-node release.ts",
+    "upgrade": "yarn npm-check-updates --interactive"
   },
   "dependencies": {
-    "@types/chrome": "^0.0.161",
-    "archiver": "^5.3.0",
-    "babel-loader": "^8.2.3",
+    "@types/chrome": "^0.1.40",
+    "archiver": "^7.0.1",
+    "babel-loader": "^10.1.1",
     "clean-webpack-plugin": "^4.0.0",
-    "date-fns": "^2.25.0",
-    "jquery": "^3.6.0",
-    "typescript": "^4.4.4"
+    "date-fns": "^4.1.0",
+    "jquery": "^4.0.0",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-typescript": "^7.15.0",
-    "@types/jquery": "^3.5.8",
-    "@types/node": "^16.11.6",
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/parser": "^5.2.0",
-    "copy-webpack-plugin": "^9.0.1",
-    "eslint": "^8.1.0",
-    "ts-node": "^10.4.0",
-    "webpack": "^5.60.0",
-    "webpack-cli": "^4.9.1"
-  }
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/jquery": "^4.0.0",
+    "@types/node": "^25.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "copy-webpack-plugin": "^14.0.0",
+    "eslint": "^10.2.1",
+    "npm-check-updates": "^21.0.3",
+    "ts-node": "^10.9.2",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2"
+  },
+  "packageManager": "yarn@4.14.1"
 }
