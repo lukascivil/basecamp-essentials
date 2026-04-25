@@ -1,7 +1,7 @@
 const archiver = require("archiver");
-var fs = require("fs");
+const fs = require("fs");
 
-var dir = "./release";
+const dir = "./release";
 
 /**
  * @param {String} source

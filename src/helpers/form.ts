@@ -13,13 +13,13 @@ export const ParseSerializedArrayForm = <T = ParsedSerializedArrayForm>(
 };
 
 export const compareKeys = (a: any = {}, b: any = {}): Boolean => {
-  let aKeys: Array<string> = [];
-  let bKeys: Array<string> = [];
+  let aKeys: Array<string>;
+  let bKeys: Array<string>;
 
   try {
     aKeys = Object.keys(a).sort();
     bKeys = Object.keys(b).sort();
-  } catch (error) {
+  } catch {
     return false;
   }
 

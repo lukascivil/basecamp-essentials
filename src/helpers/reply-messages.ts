@@ -2,7 +2,7 @@
 import $ from "jquery";
 
 const buildLineBodyRecursiveMessageFromNode = (node: JQuery.Node): string => {
-  let message = $(node).text().trim();
+  const message = $(node).text().trim();
   const tagName = $(node).prop("tagName");
 
   if (tagName === "BLOCKQUOTE") {
@@ -26,11 +26,11 @@ export const tryBuildReplyBodyMessageFromLineBodyNodes = (
 ): string => {
   return lineBodyNodes
     .map((element) => {
-      let message = "";
+      let message: string;
 
       try {
         message = buildLineBodyRecursiveMessageFromNode(element);
-      } catch (error) {
+      } catch {
         return "error";
       }
 

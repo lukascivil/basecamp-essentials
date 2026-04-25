@@ -63,7 +63,7 @@ const loop = (parsedConfig: ParsedConfig): void => {
 
 const bootstrap = (): void => {
   getConfig().then((parsedConfig) => {
-    let pageHasChatContent: boolean =
+    const pageHasChatContent: boolean =
       window.location.pathname.includes("circles") ||
       window.location.pathname.includes("chats");
 
